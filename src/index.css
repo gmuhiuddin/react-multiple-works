@@ -1,0 +1,17 @@
+.main-container{
+  height: 605px;
+  width: 605px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.icon-container > img {
+  height: 100px;
+  width: 100px;
+}
+
+.closed-icon-container{
+  background-color: black;
+}
