@@ -10,12 +10,6 @@ function LeafTossingGamePrototype() {
             inProcessing: false,
             id: 1
         }, {
-            image: "https://cdn-icons-png.flaticon.com/512/88/88506.png",
-            name: "leave",
-            isOpened: false,
-            inProcessing: false,
-            id: 2
-        }, {
             image: "https://cdn-icons-png.flaticon.com/512/9356/9356709.png",
             name: "candy",
             isOpened: false,
@@ -39,6 +33,12 @@ function LeafTossingGamePrototype() {
             isOpened: false,
             inProcessing: false,
             id: 6
+        }, {
+            image: "https://cdn-icons-png.flaticon.com/512/88/88506.png",
+            name: "leave",
+            isOpened: false,
+            inProcessing: false,
+            id: 2
         },
     ];
 
@@ -67,9 +67,13 @@ function LeafTossingGamePrototype() {
                 icon.isOpened = true;
             });
 
-            const leftIcons = duplicateIcon.filter(icon => icon.name != pacificIcon.name);
+            const firstIconIndex = duplicateIcon.findIndex(icon => icon.name == pacificIcon.name);
+            const lastIconIndex = duplicateIcon.findLastIndex(icon => icon.name == pacificIcon.name);
 
-            setIcons([...leftIcons, ...iconsFromName]);
+            duplicateIcon.splice(firstIconIndex, 1, iconsFromName[0]);
+            duplicateIcon.splice(lastIconIndex, 1, iconsFromName[1]);
+
+            setIcons(duplicateIcon);
         } else {
             pacificIcon.inProcessing = true;
 
